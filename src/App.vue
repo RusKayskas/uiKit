@@ -1,30 +1,39 @@
-<script setup>
-import HelloWorld from '@/components/HelloWorld.vue'
-</script>
-
 <template>
   <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+    <Header />
+    <Sidebar :links="links" @open-sidebar="openSidebar" />
+    <div class="container">
+      <div :class="['content', {'content--is-open-sidebar': isOpenSidebar} ]">
+        <router-view/>
+      </div>
+    </div>
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
+<script setup>
+  import { ref } from 'vue';
+  import Header from '@/components/layout/Header.vue';
+  import Sidebar from '@/components/Ui/Sidebar.vue';
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
+  const links = [
+    {
+      name: 'Typography',
+      href: '/typography'
+    },
+    {
+      name: 'UiButton',
+      href: '/uibutton'
+    }
+  ]
+  const isOpenSidebar = ref(true);
+  const openSidebar = (value) => {
+    isOpenSidebar.value = value; 
+  };
+</script>
+<style lang="scss">
+  .content {
+    transition: linear 0.2s;
+    &--is-open-sidebar {
+      margin-left: 256px;
+    }
+  }
 </style>
