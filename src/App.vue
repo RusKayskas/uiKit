@@ -20,8 +20,8 @@
       href: '/typography'
     },
     {
-      name: 'UiButton',
-      href: '/uibutton'
+      name: 'Button',
+      href: '/button'
     }
   ]
   const isOpenSidebar = ref(true);
