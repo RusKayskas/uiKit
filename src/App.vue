@@ -24,7 +24,7 @@
       href: '/button'
     }
   ]
-  const isOpenSidebar = ref(true);
+  const isOpenSidebar = ref(false);
   const openSidebar = (value) => {
     isOpenSidebar.value = value; 
   };
@@ -32,6 +32,7 @@
 <style lang="scss">
   .content {
     transition: linear 0.2s;
+    padding: 20px 16px;
     &--is-open-sidebar {
       margin-left: 256px;
     }

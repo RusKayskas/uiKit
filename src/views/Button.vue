@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>UiButton</h1>
+    <h1 class="title">UiButton</h1>
   </div>
 </template>
 
